@@ -58,10 +58,10 @@ if(totalShoppingCart > 50){
   Modifica la risposta precedente includendo questa nuova promozione nell'algoritmo, determinando come prima se le spedizioni sono gratuite oppure no e e calcolando il totale.
 */
 
-if( (totalShoppingCart-0.2*totalShoppingCart) > 50){
+if( (totalShoppingCart*0.8) > 50){
     console.log("La spedizione è gratuita")
 }else{
-    console.log("La spedizione costa 10, quindi", (totalShoppingCart-0.2*totalShoppingCart)+10);
+    console.log("La spedizione costa 10, quindi", (totalShoppingCart*0.8)+10);
 }
 
 /* ESERCIZIO 7
@@ -70,21 +70,53 @@ if( (totalShoppingCart-0.2*totalShoppingCart) > 50){
   Alla fine mostra il risultato in console.
 */
 
-const a = 10;
-const b = 3;
-const c= 25;
+let a = 7;
+let b = 9;
+let c = 56;
+let max;
+let mid;
+let min;
 
-if(a > b && a >c){
-    console.log(a);
-}else if(b>a || b>c){
-    console.log(b);
+if(a > b && a > c){
+    max = a;
+    if(b > c){
+        mid = b;
+        min = c;
+    }else{
+        mid = c;
+        min = b;
+    }
+}else if(b > a && b > c){
+    max = b;
+    if(a > c){
+        mid = a;
+        min = c;
+    }else{
+        mid = c;
+        min = a;
+    }
 }else if(c > b && c > a){
-    console.log(c);
+    max = c;
+    if(a > b){
+        mid = a;
+        min = b;
+    }else{
+        mid = b;
+        min = a;
+    }
 }
+console.log(max, mid, min);
 
 /* ESERCIZIO 8
   Crea un algoritmo per verificare che un valore fornito sia un numero oppure no (suggerimento: cerca su un motore di ricerca "typeof").
 */
+
+const number = 13; 
+if(typeof number === 'number'){
+    console.log("Es 8:", "Questo valore è un numero");
+} else{
+    console.log("Es 8:", "Questo valore non è un numero");
+}
 
 
 
@@ -131,8 +163,9 @@ console.log(me.city);
   Lavorando sempre sull'oggetto precedentemente fornito, scrivi del codice per rimuovere la proprietà "lastName".
 */
 
+let lastName;
 delete(me.lastName);
-// console.log(lastName);
+console.log(lastName);
 
 /* ESERCIZIO 13
   Lavorando sempre sull'oggetto precedentemente fornito, scrivi del codice per rimuovere l'ultimo elemento della proprietà "skills".
